@@ -41,5 +41,8 @@ npm install
 pip install -r requirements.txt
 ```
 
+## Code Editor
+- [NeoVim](https://neovim.io/)
+- [My confing neovim](https://github.com/alirg-1999/config-neovim-me.git)
 
 
