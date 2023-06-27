@@ -1,4 +1,0 @@
-{
-  "app": "penproseserver",
-  "disks": [{ "name": "image", "mountTo": "media" }]
-}

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-  baseURL: "https://penproseserver.iran.liara.run",
+  baseURL: "",//backend base url
 });
 
 export const AllPostApi = async () => {

@@ -6,7 +6,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p3)98m(g$xlb8&op)c0s39k=q!xgq-s$jq5cum_ey_b$=*)%61'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -75,14 +74,7 @@ WSGI_APPLICATION = 'Blog.wsgi.application'
 # Database
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': "postgres",
-        'USER': 'root',
-        'PASSWORD': '1GuqMtFslO2HizmQA12MC7Dh',
-        'HOST': 'billy.iran.liara.ir',
-        'PORT': '31779',
-    }
+ ##your data base config
 }
 
 
@@ -119,7 +111,7 @@ USE_TZ = True
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = [
-    'https://penprose.iran.liara.run',
+    #list from allow request to blog
 ]
 CORS_ALLOW_CREDENTIALS = True 
 
