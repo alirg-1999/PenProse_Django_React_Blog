@@ -23,7 +23,7 @@
 
 ## Backend Contents
 - [Python](https://www.python.org/) Python is a programming language that lets you work quickly and integrate systems more effectively
-- [Django](https://www.djangoproject.com/)Django makes it easier to build better web apps more quickly and with less code.
+- [Django](https://www.djangoproject.com/) Django makes it easier to build better web apps more quickly and with less code.
 - [Django-Rest-Framework](https://www.django-rest-framework.org/) Django REST framework is a powerful and flexible toolkit for building Web APIs.
-- [django-cors-headers](https://pypi.org/project/django-cors-headers/)django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS).
+- [django-cors-headers](https://pypi.org/project/django-cors-headers/) django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS).
 
