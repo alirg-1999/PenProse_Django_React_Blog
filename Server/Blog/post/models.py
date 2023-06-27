@@ -45,7 +45,7 @@ class Post(BaseModel):
     def __str__(self) -> str:
         return (f'{self.title} by {self.author.username}')
 
-    def get_by_slug(self) -> str:
+
         return self.get(self.slug)
 
 

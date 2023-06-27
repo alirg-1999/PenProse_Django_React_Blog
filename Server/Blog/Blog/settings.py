@@ -119,7 +119,7 @@ USE_TZ = True
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = [
-    'http://localhost:5173',
+    'https://penprose.iran.liara.run',
 ]
 CORS_ALLOW_CREDENTIALS = True 
 
