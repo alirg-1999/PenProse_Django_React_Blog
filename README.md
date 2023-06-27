@@ -27,3 +27,19 @@
 - [Django-Rest-Framework](https://www.django-rest-framework.org/) Django REST framework is a powerful and flexible toolkit for building Web APIs.
 - [django-cors-headers](https://pypi.org/project/django-cors-headers/) django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS).
 
+
+## Use Frontend Contents
+```
+yarn install
+or
+npm install
+```
+
+## Use Backend Contents
+**Warning**: Use virtual virtualenv.
+```
+pip install -r requirements.txt
+```
+
+
+
