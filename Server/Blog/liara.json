@@ -1,0 +1,4 @@
+{
+  "app": "backendpenprose",
+  "disks": [{ "name": "image", "mountTo": "media" }]
+}
