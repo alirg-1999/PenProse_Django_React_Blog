@@ -1,6 +1,6 @@
-![server screen](image/Backend.png)
+![server screen](image/terminal.png)
 
-![client screen](image/Frontend.png)
+![client screen](image/web-blog.png)
 
 # Alirg1999 PenProse
 
