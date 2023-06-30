@@ -8,14 +8,21 @@ import {
   VStack,
   Spinner,
   Avatar,
+  Icon,
 } from "@chakra-ui/react";
+
+import { AiFillHeart } from "react-icons/ai";
 import { Link as LinkDom } from "react-router-dom";
 import { MdDelete, MdEditNote } from "react-icons/md";
-import { DeletePost } from "../api";
+import { DeletePost, PostLikeApi } from "../api";
 import { UserDataApi } from "../api";
 
 export const PostProfileCart = ({ post, userToken }) => {
   const [isLoad, setIsLoad] = useState(false);
+  const [postLike, setPostLike] = useState([]);
+  useEffect(() => {
+    PostLikeApi(post.id).then((res) => setPostLike(res.data));
+  }, []);
   const deletePostHandler = () => {
     setIsLoad(true);
     DeletePost(post.slug, userToken).then(() => {
@@ -47,9 +54,15 @@ export const PostProfileCart = ({ post, userToken }) => {
           justifyContent="space-between"
         >
           <Text fontWeight="bold">{post.title}</Text>
-          <Text fontSize="sm" color="gray.500">
-            {post.create_at.slice(0, 10)}
-          </Text>
+          <HStack gap="9">
+            <Text fontSize="sm" color="gray.500">
+              {post.create_at.slice(0, 10)}
+            </Text>
+            <HStack fontSize="13px">
+              <Icon color="red.300" as={AiFillHeart} />
+              <Text>{postLike.length}</Text>
+            </HStack>
+          </HStack>
         </VStack>
       </HStack>
 
@@ -125,9 +138,11 @@ export const CartPost = ({ data }) => {
           <Text fontWeight="bold">
             {data.title.slice(0, 80)} {data.title.length > 80 ? "..." : ""}
           </Text>
-          <Text fontWeight="thin" fontSize="12px">
-            create at: {data.create_at.slice(0, 10)}
-          </Text>
+          <HStack>
+            <Text fontWeight="thin" fontSize="12px">
+              create at: {data.create_at.slice(0, 10)}
+            </Text>
+          </HStack>
         </VStack>
       </VStack>
     </Box>

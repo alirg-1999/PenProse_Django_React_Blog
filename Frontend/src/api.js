@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Api = axios.create({
-  baseURL: "",//backend base url
+  baseURL: "https://penproseserver.iran.liara.run",
 });
 
 export const AllPostApi = async () => {
@@ -93,4 +93,9 @@ export const LikePostApi = async (likeData, token) => {
       Authorization: `Token ${token}`,
     },
   });
+};
+
+//like every post
+export const PostLikeApi = async (post) => {
+  return await Api.get(`/api/like/?like=${post}`);
 };

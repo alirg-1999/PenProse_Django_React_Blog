@@ -6,11 +6,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = env.secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    # allow host for access
+]
 
 
 # Application definition
@@ -74,7 +77,7 @@ WSGI_APPLICATION = 'Blog.wsgi.application'
 # Database
 
 DATABASES = {
- ##your data base config
+     #your database account
 }
 
 
@@ -111,7 +114,7 @@ USE_TZ = True
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = [
-    #list from allow request to blog
+    #your client urls
 ]
 CORS_ALLOW_CREDENTIALS = True 
 

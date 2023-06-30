@@ -9,20 +9,21 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 User = get_user_model()
 
+
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+    queryset = User.objects.get_queryset()
     serializer_class = UserSerializers
     lookup_field = 'username'
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
-    queryset = Category.objects.all()
+    queryset = Category.objects.get_queryset()
     serializer_class = CategorySerializers
-    permission_classes =[IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = Post.objects.filter(is_delete = False)
+    queryset = Post.objects.filter(is_delete=False)
     serializer_class = PostSerializers
     permission_classes = [IsAuthenticatedOrReadOnly]
 
@@ -45,8 +46,15 @@ class PostViewSet(viewsets.ModelViewSet):
 
 
 class LikePostViewSet(viewsets.ModelViewSet):
-    queryset = LikePost.objects.all()
+    queryset = LikePost.objects.get_queryset()
     serializer_class = LinkSerializers
     permission_classes = [IsAuthenticatedOrReadOnly]
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        find_like = self.request.query_params.get('like', None)
 
+        if find_like:
+            queryset = self.queryset.filter(blog_post=find_like)
+
+        return queryset

@@ -1,8 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, User
 
+class BaseManger():
+    def get_queryset(self):
+        return super().get_queryset().filter(is_delete=False)
+
+    def get_all(self):
+        return super().get_queryset().filter()
+
+    def get_delete(self):
+        return super().get_queryset().filter(is_delete = True)
+
+
 
 class BaseModel(models.Model):
+    object = BaseManger()
     is_delete = models.BooleanField(default=False)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)

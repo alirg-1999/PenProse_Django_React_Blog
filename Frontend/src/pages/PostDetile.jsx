@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box, Heading, Image, VStack, useToast } from "@chakra-ui/react";
 import { useParams } from "react-router";
-import { GetPostApi, LikePostApi, UserDataApi } from "../api";
+import { GetPostApi, LikePostApi, PostLikeApi, UserDataApi } from "../api";
 import { MainHeader } from "../components/Header";
 import UserHeaderPost from "../components/UserHeaderPost";
 import { motion } from "framer-motion";
@@ -15,6 +15,7 @@ const PostDetail = () => {
   const [post, setPost] = useState(null);
   const [token, setToken] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [postLike, setPostLike] = useState([]);
   //like post
   const [userId, setUserId] = useState(null);
   useEffect(() => {
@@ -47,6 +48,7 @@ const PostDetail = () => {
 
   useEffect(() => {
     if (post) {
+      PostLikeApi(post.id).then((res) => setPostLike(res.data));
       UserDataApi(post.author_username).then((userData) => {
         setUser(userData.data);
       });
@@ -63,16 +65,17 @@ const PostDetail = () => {
           isClosable: true,
           position: "top-right",
         });
+        window.location.reload();
       })
-      .catch(() =>
+      .catch(() => {
         toast({
           title: "You have already liked this post",
           status: "error",
           duration: 2000,
           isClosable: true,
           position: "top-right",
-        })
-      );
+        });
+      });
   };
 
   if (post) {
@@ -117,7 +120,11 @@ const PostDetail = () => {
             <Box as="div" dangerouslySetInnerHTML={{ __html: post.content }} />
           </Box>
         </VStack>
-        <LikeSection likeEvent={LikeItPost} token={token} userId={userId} />
+        <LikeSection
+          likeEvent={LikeItPost}
+          token={token}
+          totalLike={postLike}
+        />
       </VStack>
     );
   }

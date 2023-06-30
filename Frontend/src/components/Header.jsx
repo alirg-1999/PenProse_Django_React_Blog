@@ -58,6 +58,15 @@ export const MainHeader = () => {
       />
       {isLogin ? (
         <HStack>
+          <IconButton
+            as={LinkDom}
+            to="/"
+            icon={<AiFillHome />}
+            bg="transparent"
+            fontSize="2xl"
+            color="white"
+            _hover={{ color: "gray.400" }}
+          />
           <Button
             size="sm"
             fontSize="12px"
@@ -70,6 +79,7 @@ export const MainHeader = () => {
           >
             Create Post
           </Button>
+
           {/*menu show user */}
           <Menu>
             <MenuButton
